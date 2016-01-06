@@ -1,0 +1,9 @@
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'Shopping list application', 'Implementation-Version': version
+    }
+}
+
+dependencies {
+    compile 'com.google.inject:guice:4.0'
+}

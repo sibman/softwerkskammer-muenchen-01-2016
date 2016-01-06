@@ -1,0 +1,1 @@
+include 'domain', 'application', 'persistence', 'services', 'packaging'

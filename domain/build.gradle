@@ -1,0 +1,9 @@
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'Shopping list domain model', 'Implementation-Version': version
+    }
+}
+
+dependencies {
+    compile 'javax.enterprise:cdi-api:1.2'
+}

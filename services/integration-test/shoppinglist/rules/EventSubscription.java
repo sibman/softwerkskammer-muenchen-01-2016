@@ -113,7 +113,7 @@ public final class EventSubscription implements TestRule {
     }
 
     @WebSocket(maxTextMessageSize = 8192)
-    private class EventSocket {
+    public class EventSocket {
         @OnWebSocketMessage
         public void onMessage(String message) {
             if (messageLatch != null) {

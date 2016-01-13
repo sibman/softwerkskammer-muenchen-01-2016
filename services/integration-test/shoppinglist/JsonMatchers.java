@@ -89,4 +89,25 @@ public final class JsonMatchers {
             return null;
         }
     }
+
+    /**
+     * Returns a {@link PropertyMatcherFactory} for the given JSON property in
+     * the given nested object.
+     */
+    public static PropertyMatcherFactory<String, String> subobjectWithProperty(String subobject,
+            String name) {
+        return PropertyMatcherFactory.property(name,
+                s -> getSubobjectPropertyAsString(s, subobject, name));
+    }
+
+    private static String getSubobjectPropertyAsString(String jsonString, String subobject,
+            String name) {
+        JsonElement property = jsonParser.parse(jsonString).getAsJsonObject()
+                .getAsJsonObject(subobject).get(name);
+        if (property != null) {
+            return property.getAsString();
+        } else {
+            return null;
+        }
+    }
 }

@@ -3,6 +3,7 @@ package shoppinglist.services;
 import static com.jayway.restassured.RestAssured.put;
 import static shoppinglist.JsonMatchers.havingJsonProperties;
 import static shoppinglist.JsonMatchers.property;
+import static shoppinglist.JsonMatchers.subobjectWithProperty;
 
 import java.util.concurrent.TimeUnit;
 
@@ -30,7 +31,7 @@ public class ShoppingListSubscriptionShould {
 
     @Rule
     public final RuleChain rules = RuleChain
-            .outerRule(globalTimeout).around(serverRule).around(eventSubscription);
+    .outerRule(globalTimeout).around(serverRule).around(eventSubscription);
 
     @Test
     public void notifyOfChangesToShoppingList() throws Exception {
@@ -38,8 +39,8 @@ public class ShoppingListSubscriptionShould {
 
         eventSubscription.assertThatMessageWasReceived(havingJsonProperties(
                 property("eventType").equalTo(ItemAddedDto.EVENT_TYPE),
-                property("article").equalTo("Butter"),
-                property("amount").equalTo("100"),
-                property("unit").equalTo("G")));
+                subobjectWithProperty("itemDto", "article").equalTo("Butter"),
+                subobjectWithProperty("itemDto", "amount").equalTo("100"),
+                subobjectWithProperty("itemDto", "unit").equalTo("G")));
     }
 }

@@ -31,7 +31,7 @@ public class ShoppingListSubscriptionShould {
 
     @Rule
     public final RuleChain rules = RuleChain
-    .outerRule(globalTimeout).around(serverRule).around(eventSubscription);
+            .outerRule(globalTimeout).around(serverRule).around(eventSubscription);
 
     @Test
     public void notifyOfChangesToShoppingList() throws Exception {

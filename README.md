@@ -1,5 +1,7 @@
 # Exercise for meeting of the Softwerkskammer München, January 2016
 
+Slide deck is at [https://docs.google.com/presentation/d/1kUnjD8UEq9w4ade5wWxoHqfBnv1VxVwZhvQ5MDRn9H4]
+
 This is an exercise on the use of CQRS and Event Sourcing for the meeting of
 the Softwerkskammer München in January 2016.
 
